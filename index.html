@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial +initial-scale=1.0">
     <title>GLXY - Mobile Gaming</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -25,7 +25,6 @@
             min-height: 100vh;
         }
 
-        /* Simplified Background */
         body::before {
             content: '';
             position: absolute;
@@ -37,10 +36,9 @@
             z-index: -1;
         }
 
-        /* Smaller Header */
         header {
             background: linear-gradient(90deg, rgba(0, 170, 255, 0.2), rgba(255, 85, 0, 0.2), rgba(255, 0, 255, 0.2));
-            padding: 20px 0; /* Reduced from 50px */
+            padding: 20px 0;
             text-align: center;
             position: relative;
             width: 100%;
@@ -65,18 +63,18 @@
         }
 
         h1 {
-            font-size: 2.5em; /* Reduced from 4em */
+            font-size: 2.5em;
             text-transform: uppercase;
-            letter-spacing: 3px; /* Slightly reduced from 5px */
+            letter-spacing: 3px;
             color: #ffffff;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
             font-weight: 800;
         }
 
         p.subtitle {
-            font-size: 1em; /* Reduced from 1.4em */
-            color: #f0f0f0;
-            margin-top: 5px; /* Reduced from 10px */
+            font-size: 1em;
+            color: #ffcc00; /* Changed to a vibrant yellow */
+            margin-top: 5px;
             font-weight: 400;
             position: relative;
             display: inline-block;
@@ -85,15 +83,14 @@
         p.subtitle::after {
             content: '';
             position: absolute;
-            bottom: -3px; /* Adjusted for smaller size */
+            bottom: -3px;
             left: 0;
             width: 100%;
             height: 1px;
-            background: #ffffff;
-            box-shadow: 0 0 3px rgba(255, 255, 255, 0.5); /* Slightly reduced glow */
+            background: #ffcc00; /* Match the text color */
+            box-shadow: 0 0 3px rgba(255, 204, 0, 0.5);
         }
 
-        /* Game Container */
         .game-container {
             display: flex;
             justify-content: center;
@@ -121,7 +118,6 @@
             transform: translateY(-10px);
         }
 
-        /* Themed Borders and Neon Glow for Game Cards */
         .fifa-card {
             border: 2px solid #00aaff;
             box-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 40px rgba(0, 255, 153, 0.3);
@@ -170,7 +166,6 @@
             justify-content: space-between;
         }
 
-        /* Game-Specific Title Colors */
         .fifa-card h2 {
             font-size: 1.8em;
             color: #00aaff;
@@ -195,7 +190,6 @@
             font-weight: 600;
         }
 
-        /* Play Store/App Store Rating Style */
         .rating {
             margin-bottom: 12px;
             display: flex;
@@ -225,9 +219,20 @@
 
         .platform {
             font-size: 1em;
-            color: #b0b0b0;
             margin-bottom: 15px;
             font-weight: 400;
+        }
+
+        .fifa-card .platform {
+            color: #00ff99; /* Bright teal for FIFA */
+        }
+
+        .gta-card .platform {
+            color: #ffaa00; /* Orange-yellow for GTA */
+        }
+
+        .fortnite-card .platform {
+            color: #9900ff; /* Deep purple for Fortnite */
         }
 
         .game-card p {
@@ -236,13 +241,15 @@
             margin-bottom: 20px;
         }
 
-        /* Download Buttons */
         .download-btn {
-            display: block;
-            padding: 14px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
             text-align: center;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 800;
             font-size: 1.2em;
             color: #ffffff;
@@ -250,7 +257,26 @@
             position: relative;
             overflow: hidden;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
             transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background-position: 0 0;
+        }
+
+        .download-btn:hover svg {
+            transform: translateY(3px);
         }
 
         .download-btn::before {
@@ -260,39 +286,39 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             transform: skewX(-20deg);
             transition: left 0.4s ease;
+            z-index: 0;
         }
 
         .download-btn:hover::before {
             left: 100%;
         }
 
-        .download-btn:hover {
-            transform: scale(1.08);
+        .download-btn span {
+            position: relative;
+            z-index: 1;
         }
 
-        /* Game-Specific Button Themes */
         .fifa-btn {
             background: linear-gradient(45deg, #00aaff, #00ff99);
             border: 2px solid #00aaff;
-            box-shadow: 0 0 10px rgba(0, 170, 255, 0.7), inset 0 0 5px rgba(0, 255, 153, 0.5);
+            box-shadow: 0 0 12px rgba(0, 170, 255, 0.7), inset 0 0 6px rgba(0, 255, 153, 0.5);
         }
 
         .gta-btn {
             background: linear-gradient(45deg, #ff5500, #ffaa00);
             border: 2px solid #ff5500;
-            box-shadow: 0 0 10px rgba(255, 85, 0, 0.7), inset 0 0 5px rgba(255, 170, 0, 0.5);
+            box-shadow: 0 0 12px rgba(255, 85, 0, 0.7), inset 0 0 6px rgba(255, 170, 0, 0.5);
         }
 
         .fortnite-btn {
             background: linear-gradient(45deg, #ff00ff, #9900ff);
             border: 2px solid #ff00ff;
-            box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), inset 0 0 5px rgba(153, 0, 255, 0.5);
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.7), inset 0 0 6px rgba(153, 0, 255, 0.5);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 30px 0;
@@ -321,10 +347,27 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
         }
 
-        /* Fade In Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-appear {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .card-appear.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .download-counter {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -335,7 +378,7 @@
     </header>
 
     <div class="game-container">
-        <div class="game-card FC-card">
+        <div class="game-card fifa-card card-appear">
             <img src="https://cdn1.epicgames.com/offer/b61e8ddd14e94619b7a74cf9d73f86b5/EGS_EASPORTSFC25StandardEdition_EACanada_S2_1200x1600-6e6b5c1d5d30e15b1dbdde721c6bc544" alt="FC 25">
             <div class="game-info">
                 <div>
@@ -353,11 +396,15 @@
                     <div class="platform">Works on iOS & Android</div>
                     <p>Dominate the field with smooth controls and epic matches.</p>
                 </div>
-                <a href="https://yourdomain.com/FC25" class="download-btn fifa-btn">Download Now</a>
+                <a href="https://yourdomain.com/FC25" class="download-btn fifa-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    <span>Download Now</span>
+                </a>
+                <div class="download-counter">Downloads: <span class="count">0</span></div>
             </div>
         </div>
 
-        <div class="game-card gta-card">
+        <div class="game-card gta-card card-appear">
             <img src="https://i.ebayimg.com/images/g/gXoAAOSwgn1dWpwt/s-l1200.jpg" alt="GTA V">
             <div class="game-info">
                 <div>
@@ -375,11 +422,15 @@
                     <div class="platform">Works on iOS & Android</div>
                     <p>Rule the streets in this action-packed crime saga.</p>
                 </div>
-                <a href="https://yourdomain.com/gtav" class="download-btn gta-btn">Download Now</a>
+                <a href="https://yourdomain.com/gtav" class="download-btn gta-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    <span>Download Now</span>
+                </a>
+                <div class="download-counter">Downloads: <span class="count">0</span></div>
             </div>
         </div>
 
-        <div class="game-card fortnite-card">
+        <div class="game-card fortnite-card card-appear">
             <img src="https://m.media-amazon.com/images/M/MV5BMTZlMmIxM2EtN2Y4Zi00M2ZhLTk3NzgtNjJmZTU0MTQ3YjcwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Fortnite">
             <div class="game-info">
                 <div>
@@ -397,7 +448,11 @@
                     <div class="platform">Works on iOS & Android</div>
                     <p>Battle it out in this thrilling royale showdown.</p>
                 </div>
-                <a href="https://yourdomain.com/fortnite" class="download-btn fortnite-btn">Download Now</a>
+                <a href="https://yourdomain.com/fortnite" class="download-btn fortnite-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    <span>Download Now</span>
+                </a>
+                <div class="download-counter">Downloads: <span class="count">0</span></div>
             </div>
         </div>
     </div>
@@ -405,5 +460,106 @@
     <footer>
         <p>© 2025 GLXY. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Card appearance animation on scroll
+        const cards = document.querySelectorAll('.card-appear');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        cards.forEach(card => observer.observe(card));
+
+        // Dynamic header color shift
+        const header = document.querySelector('header');
+        let hue = 0;
+        function updateHeaderColor() {
+            hue = (hue + 1) % 360;
+            header.style.background = `linear-gradient(90deg, hsl(${hue}, 70%, 50%, 0.2), hsl(${(hue + 90) % 360}, 70%, 50%, 0.2), hsl(${(hue + 180) % 360}, 70%, 50%, 0.2))`;
+            requestAnimationFrame(updateHeaderColor);
+        }
+        updateHeaderColor();
+
+        // Initialize random download counts
+        const downloadCounters = document.querySelectorAll('.download-counter .count');
+        downloadCounters.forEach(counter => {
+            const randomCount = Math.floor(Math.random() * 10000) + 1000;
+            counter.textContent = randomCount;
+        });
+
+        // Download counter increment on click
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        downloadButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const counter = this.nextElementSibling.querySelector('.count');
+                let count = parseInt(counter.textContent);
+                count += Math.floor(Math.random() * 5) + 1;
+                counter.textContent = count;
+                
+                this.style.animation = 'pulse 0.3s ease';
+                setTimeout(() => this.style.animation = '', 300);
+            });
+        });
+
+        // Add pulse animation keyframes dynamically
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Lazy loading images for performance
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('loading', 'lazy');
+        });
+
+        // Mouse trail effect for fun
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.cssText = `
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${e.pageX}px;
+                top: ${e.pageY}px;
+                z-index: 9999;
+                animation: fadeOut 0.5s ease forwards;
+            `;
+            document.body.appendChild(trail);
+            setTimeout(() => trail.remove(), 500);
+        });
+
+        const trailStyle = document.createElement('style');
+        trailStyle.textContent = `
+            @keyframes fadeOut {
+                to { opacity: 0; transform: scale(0); }
+            }
+        `;
+        document.head.appendChild(trailStyle);
+    </script>
 </body>
 </html>
