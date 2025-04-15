@@ -94,6 +94,72 @@
             box-shadow: 0 0 3px rgba(255, 204, 0, 0.5);
         }
 
+        /* Search Bar Styles */
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+
+        #search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(37, 37, 37, 0.95);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            font-size: 1em;
+            color: #ffffff;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #search-bar:focus {
+            border: 2px solid #00aaff;
+            box-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
+            background: rgba(50, 50, 50, 0.95);
+        }
+
+        #search-bar::placeholder {
+            color: #888888;
+        }
+
+        #search-btn {
+            position: absolute;
+            right: 10px;
+            background: linear-gradient(45deg, #00aaff, #ff00ff);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+        }
+
+        #search-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+        }
+
+        #search-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+        }
+
+        #search-btn:active {
+            transform: scale(0.95);
+        }
+
         .game-container {
             display: flex;
             justify-content: center;
@@ -437,7 +503,9 @@
         .witcher3-btn {
             background: linear-gradient(45deg, #4b0082, #7b68ee);
             border: 2px solid #4b0082;
-            box-shadow: 0 0 12px rgba(75, 0, 130, 0.7), inset 0 0 6px rgba(75, 0, 130, 0.5);
+            box
+
+-shadow: 0 0 12px rgba(75, 0, 130, 0.7), inset 0 0 6px rgba(75, 0, 130, 0.5);
         }
 
         .cyberpunk-btn {
@@ -509,12 +577,42 @@
             margin-top: 10px;
             text-align: center;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .search-container {
+                padding: 0 20px;
+            }
+
+            #search-bar {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            #search-btn {
+                width: 35px;
+                height: 35px;
+            }
+
+            #search-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>GLXY</h1>
         <p class="subtitle">Top Mobile Games, One Click Away</p>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search games..." aria-label="Search games">
+            <button id="search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-4.23 6.5 6.5 0 10-6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <div class="game-container">
@@ -785,6 +883,35 @@
                 this.style.animation = 'pulse 0.3s ease';
                 setTimeout(() => this.style.animation = '', 300);
             });
+        });
+
+        // Search bar functionality
+        const searchBar = document.getElementById('search-bar');
+        const gameCards = document.querySelectorAll('.game-card');
+
+        searchBar.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+
+            gameCards.forEach(card => {
+                const gameTitle = card.querySelector('h2').textContent.toLowerCase();
+                if (gameTitle.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    card.classList.add('active');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Clear search on button click if needed
+        document.getElementById('search-btn').addEventListener('click', function() {
+            if (searchBar.value) {
+                searchBar.value = '';
+                gameCards.forEach(card => {
+                    card.style.display = 'flex';
+                    card.classList.add('active');
+                });
+            }
         });
 
         // Add pulse animation keyframes dynamically
