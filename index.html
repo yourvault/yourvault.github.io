@@ -39,7 +39,7 @@
         }
 
         header {
-            background: linear-gradient(90deg, rgba(0, 170, 255, 0.2), rgba(255, 85, 0, 0.2), rgba(255, 0, 255, 0.2));
+            background: linear-gradient(90deg, rgba(0, 170, 255, 0.2), rgba(192, 192, 192, 0.2));
             padding: 20px 0;
             text-align: center;
             position: relative;
@@ -50,34 +50,37 @@
         }
 
         header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #00aaff, #ff5500, #ff00ff);
-            animation: glowLine 3s infinite linear;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00aaff, #c0c0c0);
+    animation: glowLine 3s infinite linear;
+}
+
+@keyframes glowLine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+        .header-logo {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes glowLine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 800;
+        .header-logo:hover {
+            transform: scale(1.05);
         }
 
         p.subtitle {
             font-size: 1em;
             color: #ffcc00;
-            margin-top: 5px;
+            margin-top: 10px;
             font-weight: 400;
             position: relative;
             display: inline-block;
@@ -938,7 +941,9 @@
 </head>
 <body>
     <header>
-        <h1>GLXY</h1>
+        <a href="https://infinitetools.site">
+            <img src="https://i.postimg.cc/43k89wN5/Spring.png" alt="GLXY Logo" class="header-logo" loading="lazy">
+        </a>
         <p class="subtitle">Top Mobile Games, One Click Away</p>
         <div class="search-container">
             <input type="text" id="search-bar" placeholder="Search games..." aria-label="Search games">
@@ -955,7 +960,7 @@
             <img src="https://i.ebayimg.com/00/s/MTYwMFgxMDY2/z/qdcAAOSwZ1VjQRd2/$_57.JPG?set_id=880000500F" alt="GOW: Ragnarök">
             <div class="game-info">
                 <div>
-                    <h2>GOW: Ragnarök Mobile</h2> 
+                     <h2>GOW: Ragnarök Mobile</h2> 
                     <div class="rating">
                         <div class="stars">
                             <span>★</span>
@@ -1599,6 +1604,16 @@ counters.forEach(counter => {
         // Navigation happens automatically via the <a> tag's href
     });
 });
+
+// Dynamic header color shift
+const header = document.querySelector('header');
+let hue = 0;
+function updateHeaderColor() {
+    hue = (hue + 1) % 360;
+    header.style.background = `linear-gradient(90deg, hsl(${hue}, 70%, 50%, 0.2), hsl(${(hue + 90) % 360}, 70%, 50%, 0.2))`;
+    requestAnimationFrame(updateHeaderColor);
+}
+updateHeaderColor();
 </script>
 </body>
 </html>
