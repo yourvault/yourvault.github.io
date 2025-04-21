@@ -7,49 +7,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        html, body {
-            background: linear-gradient(135deg, #151515 0%, #2a2a2a 100%);
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            width: 100%;
-            max-width: 100vw;
-        }
+html, body {
+    background: linear-gradient(135deg, #151515 0%, #2a2a2a 100%);
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+}
 
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 10%, transparent 50%);
-            z-index: -1;
-        }
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 10%, transparent 50%);
+    z-index: -1;
+}
 
-        header {
-            background: linear-gradient(90deg, rgba(0, 170, 255, 0.2), rgba(192, 192, 192, 0.2));
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            width: 100%;
-            max-width: 1300px;
-            backdrop-filter: blur(5px);
-            box-sizing: border-box;
-        }
+header {
+    background: linear-gradient(90deg, rgba(0, 170, 255, 0.2), rgba(192, 192, 192, 0.2));
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    box-sizing: border-box;
+}
 
-        header::after {
+header::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -65,878 +64,878 @@
     100% { transform: translateX(100%); }
 }
 
-        .header-logo {
-            max-width: 130px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            transition: transform 0.3s ease;
-        }
-
-        .header-logo:hover {
-            transform: scale(1.05);
-        }
-
-        p.subtitle {
-            font-size: 1em;
-            color: #ffcc00;
-            margin-top: 10px;
-            font-weight: 400;
-            position: relative;
-            display: inline-block;
-        }
-
-        p.subtitle::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: #ffcc00;
-            box-shadow: 0 0 3px rgba(255, 204, 0, 0.5);
-        }
-
-        /* Search Bar Styles */
-        .search-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-        }
-
-        #search-bar {
-            width: 100%;
-            padding: 12px 20px;
-            background: rgba(37, 37, 37, 0.95);
-            border: 2px solid transparent;
-            border-radius: 25px;
-            font-size: 1em;
-            color: #ffffff;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        #search-bar:focus {
-            border: 2px solid #00aaff;
-            box-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
-            background: rgba(50, 50, 50, 0.95);
-        }
-
-        #search-bar::placeholder {
-            color: #888888;
-        }
-
-        #search-btn {
-            position: absolute;
-            right: 10px;
-            background: linear-gradient(45deg, #00aaff, #ff00ff);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
-        }
-
-        #search-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
-        }
-
-        #search-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-        }
-
-        #search-btn:active {
-            transform: scale(0.95);
-        }
-
-        .game-container {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 40px;
-            padding: 60px 20px;
-            max-width: 1300px;
-            width: 100%;
-            flex-wrap: wrap;
-            animation: fadeIn 1s ease-in;
-            box-sizing: border-box;
-        }
-
-        .game-card {
-            background: rgba(37, 37, 37, 0.95);
-            width: 360px;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .game-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .gow-card {
-            border: 2px solid #00aaff;
-            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 40px rgba(0, 204, 255, 0.3);
-        }
-
-        .gow-card:hover {
-            box-shadow: 0 10px 30px rgba(0, 170, 255, 0.7), 0 0 50px rgba(0, 204, 255, 0.5);
-        }
-
-        .gta-card {
-            border: 2px solid #ff5500;
-            box-shadow: 0 0 20px rgba(255, 85, 0, 0.5), 0 0 40px rgba(255, 170, 0, 0.3);
-        }
-
-        .gta-card:hover {
-            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.7), 0 0 50px rgba(255, 170, 0, 0.5);
-        }
-
-        .fortnite-card {
-            border: 2px solid #ff00ff;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(153, 0, 255, 0.3);
-        }
-
-        .fortnite-card:hover {
-            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.7), 0 0 50px rgba(153, 0, 255, 0.5);
-        }
-
-        .rdr2-card {
-            border: 2px solid #8b0000;
-            box-shadow: 0 0 20px rgba(139, 0, 0, 0.7), 0 0 40px rgba(139, 0, 0, 0.5);
-        }
-
-        .rdr2-card:hover {
-            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.9), 0 0 50px rgba(139, 0, 0, 0.7);
-        }
-
-        .witcher3-card {
-            border: 2px solid #4b0082;
-            box-shadow: 0 0 20px rgba(75, 0, 130, 0.5), 0 0 40px rgba(75, 0, 130, 0.3);
-        }
-
-        .witcher3-card:hover {
-            box-shadow: 0 10px 30px rgba(75, 0, 130, 0.7), 0 0 50px rgba(75, 0, 130, 0.5);
-        }
-
-        .cyberpunk-card {
-            border: 2px solid #ffd700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
-        }
-
-        .cyberpunk-card:hover {
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7), 0 0 50px rgba(255, 215, 0, 0.5);
-        }
-
-        .eldenring-card {
-            border: 2px solid #228b22;
-            box-shadow: 0 0 20px rgba(34, 139, 34, 0.5), 0 0 40px rgba(34, 139, 34, 0.3);
-        }
-
-        .eldenring-card:hover {
-            box-shadow: 0 10px 30px rgba(34, 139, 34, 0.7), 0 0 50px rgba(34, 139, 34, 0.5);
-        }
-
-        .uncharted4-card {
-            border: 2px solid #4682b4;
-            box-shadow: 0 0 20px rgba(70, 130, 180, 0.5), 0 0 40px rgba(70, 130, 180, 0.3);
-        }
-
-        .uncharted4-card:hover {
-            box-shadow: 0 10px 30px rgba(70, 130, 180, 0.7), 0 0 50px rgba(70, 130, 180, 0.5);
-        }
-
-        /* Ghost of Tsushima Card */
-        .got-card {
-            border: 2px solid #8b0000;
-            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5), 0 0 40px rgba(139, 0, 0, 0.3);
-        }
-        .got-card:hover {
-            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.7), 0 0 50px rgba(139, 0, 0, 0.5);
-        }
-        .got-card h2 {
-            font-size: 1.8em;
-            color: #8b0000;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .got-card .platform {
-            color: #ff4040;
-        }
-        .got-btn {
-            background: linear-gradient(45deg, #8b0000, #ff4040);
-            border: 2px solid #8b0000;
-            box-shadow: 0 0 12px rgba(139, 0, 0, 0.7), inset 0 0 6px rgba(139, 0, 0, 0.5);
-        }
-
-        /* The Last of Us Card */
-        .tlou-card {
-            border: 2px solid #2e3b2e;
-            box-shadow: 0 0 20px rgba(46, 59, 46, 0.5), 0 0 40px rgba(46, 59, 46, 0.3);
-        }
-        .tlou-card:hover {
-            box-shadow: 0 10px 30px rgba(46, 59, 46, 0.7), 0 0 50px rgba(46, 59, 46, 0.5);
-        }
-        .tlou-card h2 {
-            font-size: 1.8em;
-            color: #2e3b2e;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .tlou-card .platform {
-            color: #6b8e23;
-        }
-        .tlou-btn {
-            background: linear-gradient(45deg, #2e3b2e, #6b8e23);
-            border: 2px solid #2e3b2e;
-            box-shadow: 0 0 12px rgba(46, 59, 46, 0.7), inset 0 0 6px rgba(46, 59, 46, 0.5);
-        }
-
-        /* Horizon Zero Dawn Card */
-        .hzd-card {
-            border: 2px solid #b8860b;
-            box-shadow: 0 0 20px rgba(184, 134, 11, 0.5), 0 0 40px rgba(184, 134, 11, 0.3);
-        }
-        .hzd-card:hover {
-            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.7), 0 0 50px rgba(184, 134, 11, 0.5);
-        }
-        .hzd-card h2 {
-            font-size: 1.8em;
-            color: #b8860b;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .hzd-card .platform {
-            color: #cd853f;
-        }
-        .hzd-btn {
-            background: linear-gradient(45deg, #b8860b, #cd853f);
-            border: 2px solid #b8860b;
-            box-shadow: 0 0 12px rgba(184, 134, 11, 0.7), inset 0 0 6px rgba(184, 134, 11, 0.5);
-        }
-
-        /* Assassin's Creed Shadows Card */
-        .acs-card {
-            border: 2px solid #1a1a1a;
-            box-shadow: 0 0 20px rgba(26, 26, 26, 0.5), 0 0 40px rgba(26, 26, 26, 0.3);
-        }
-        .acs-card:hover {
-            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.7), 0 0 50px rgba(26, 26, 26, 0.5);
-        }
-        .acs-card h2 {
-            font-size: 1.8em;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .acs-card .platform {
-            color: #b22222;
-        }
-        .acs-btn {
-            background: linear-gradient(45deg, #1a1a1a, #b22222);
-            border: 2px solid #1a1a1a;
-            box-shadow: 0 0 12px rgba(26, 26, 26, 0.7), inset 0 0 6px rgba(26, 26, 26, 0.5);
-        }
-
-        /* Silent Hill 2 Card */
-        .sh2-card {
-            border: 2px solid #696969;
-            box-shadow: 0 0 20px rgba(105, 105, 105, 0.5), 0 0 40px rgba(105, 105, 105, 0.3);
-        }
-        .sh2-card:hover {
-            box-shadow: 0 10px 30px rgba(105, 105, 105, 0.7), 0 0 50px rgba(105, 105, 105, 0.5);
-        }
-        .sh2-card h2 {
-            font-size: 1.8em;
-            color: #696969;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .sh2-card .platform {
-            color: #a9a9a9;
-        }
-        .sh2-btn {
-            background: linear-gradient(45deg, #696969, #a9a9a9);
-            border: 2px solid #696969;
-            box-shadow: 0 0 12px rgba(105, 105, 105, 0.7), inset 0 0 6px rgba(105, 105, 105, 0.5);
-        }
-
-        /* 7 Days to Die Card */
-        .sevendtd-card {
-            border: 2px solid #4a2c2a;
-            box-shadow: 0 0 20px rgba(74, 44, 42, 0.5), 0 0 40px rgba(74, 44, 42, 0.3);
-        }
-        .sevendtd-card:hover {
-            box-shadow: 0 10px 30px rgba(74, 44, 42, 0.7), 0 0 50px rgba(74, 44, 42, 0.5);
-        }
-        .sevendtd-card h2 {
-            font-size: 1.8em;
-            color: #4a2c2a;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .sevendtd-card .platform {
-            color: #8b0000;
-        }
-        .sevendtd-btn {
-            background: linear-gradient(45deg, #4a2c2a, #8b0000);
-            border: 2px solid #4a2c2a;
-            box-shadow: 0 0 12px rgba(74, 44, 42, 0.7), inset 0 0 6px rgba(74, 44, 42, 0.5);
-        }
-
-        /* Black Myth: Wukong Card */
-        .bmw-card {
-            border: 2px solid #8b4513;
-            box-shadow: 0 0 20px rgba(139, 69, 19, 0.5), 0 0 40px rgba(139, 69, 19, 0.3);
-        }
-        .bmw-card:hover {
-            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.7), 0 0 50px rgba(139, 69, 19, 0.5);
-        }
-        .bmw-card h2 {
-            font-size: 1.8em;
-            color: #8b4513;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .bmw-card .platform {
-            color: #d4a017;
-        }
-        .bmw-btn {
-            background: linear-gradient(45deg, #8b4513, #d4a017);
-            border: 2px solid #8b4513;
-            box-shadow: 0 0 12px rgba(139, 69, 19, 0.7), inset 0 0 6px rgba(139, 69, 19, 0.5);
-        }
-
-        /* Euro Truck Simulator 2 Card */
-        .ets2-card {
-            border: 2px solid #4682b4;
-            box-shadow: 0 0 20px rgba(70, 130, 180, 0.5), 0 0 40px rgba(70, 130, 180, 0.3);
-        }
-        .ets2-card:hover {
-            box-shadow: 0 10px 30px rgba(70, 130, 180, 0.7), 0 0 50px rgba(70, 130, 180, 0.5);
-        }
-        .ets2-card h2 {
-            font-size: 1.8em;
-            color: #4682b4;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .ets2-card .platform {
-            color: #87cefa;
-        }
-        .ets2-btn {
-            background: linear-gradient(45deg, #4682b4, #87cefa);
-            border: 2px solid #4682b4;
-            box-shadow: 0 0 12px rgba(70, 130, 180, 0.7), inset 0 0 6px rgba(70, 130, 180, 0.5);
-        }
-
-        /* Sekiro: Shadows Die Twice Card */
-        .sekiro-card {
-            border: 2px solid #3c2f2f;
-            box-shadow: 0 0 20px rgba(60, 47, 47, 0.5), 0 0 40px rgba(60, 47, 47, 0.3);
-        }
-        .sekiro-card:hover {
-            box-shadow: 0 10px 30px rgba(60, 47, 47, 0.7), 0 0 50px rgba(60, 47, 47, 0.5);
-        }
-        .sekiro-card h2 {
-            font-size: 1.8em;
-            color: #3c2f2f;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .sekiro-card .platform {
-            color: #a0522d;
-        }
-        .sekiro-btn {
-            background: linear-gradient(45deg, #3c2f2f, #a0522d);
-            border: 2px solid #3c2f2f;
-            box-shadow: 0 0 12px rgba(60, 47, 47, 0.7), inset 0 0 6px rgba(60, 47, 47, 0.5);
-        }
-
-        /* No Man's Sky Card */
-        .nms-card {
-            border: 2px solid #ff4040;
-            box-shadow: 0 0 20px rgba(255, 64, 64, 0.5), 0 0 40px rgba(255, 64, 64, 0.3);
-        }
-        .nms-card:hover {
-            box-shadow: 0 10px 30px rgba(255, 64, 64, 0.7), 0 0 50px rgba(255, 64, 64, 0.5);
-        }
-        .nms-card h2 {
-            font-size: 1.8em;
-            color: #ff4040;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .nms-card .platform {
-            color: #00ced1;
-        }
-        .nms-btn {
-            background: linear-gradient(45deg, #ff4040, #00ced1);
-            border: 2px solid #ff4040;
-            box-shadow: 0 0 12px rgba(255, 64, 64, 0.7), inset 0 0 6px rgba(255, 64, 64, 0.5);
-        }
-
-        /* Starfield Card */
-        .starfield-card {
-            border: 2px solid #1b263b;
-            box-shadow: 0 0 20px rgba(27, 38, 59, 0.5), 0 0 40px rgba(27, 38, 59, 0.3);
-        }
-        .starfield-card:hover {
-            box-shadow: 0 10px 30px rgba(27, 38, 59, 0.7), 0 0 50px rgba(27, 38, 59, 0.5);
-        }
-        .starfield-card h2 {
-            font-size: 1.8em;
-            color: #ffffff;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .starfield-card .platform {
-            color: #778899;
-        }
-        .starfield-btn {
-            background: linear-gradient(45deg, #1b263b, #778899);
-            border: 2px solid #1b263b;
-            box-shadow: 0 0 12px rgba(27, 38, 59, 0.7), inset 0 0 6px rgba(27, 38, 59, 0.5);
-        }
-
-        /* Resident Evil 4 Card */
-        .re4-card {
-            border: 2px solid #2f4f4f;
-            box-shadow: 0 0 20px rgba(47, 79, 79, 0.5), 0 0 40px rgba(47, 79, 79, 0.3);
-        }
-        .re4-card:hover {
-            box-shadow: 0 10px 30px rgba(47, 79, 79, 0.7), 0 0 50px rgba(47, 79, 79, 0.5);
-        }
-        .re4-card h2 {
-            font-size: 1.8em;
-            color: #2f4f4f;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .re4-card .platform {
-            color: #8b0000;
-        }
-        .re4-btn {
-            background: linear-gradient(45deg, #2f4f4f, #8b0000);
-            border: 2px solid #2f4f4f;
-            box-shadow: 0 0 12px rgba(47, 79, 79, 0.7), inset 0 0 6px rgba(47, 79, 79, 0.5);
-        }
-
-        /* Lies of P Card */
-        .lop-card {
-            border: 2px solid #2f2f4f;
-            box-shadow: 0 0 20px rgba(47, 47, 79, 0.5), 0 0 40px rgba(47, 47, 79, 0.3);
-        }
-        .lop-card:hover {
-            box-shadow: 0 10px 30px rgba(47, 47, 79, 0.7), 0 0 50px rgba(47, 47, 79, 0.5);
-        }
-        .lop-card h2 {
-            font-size: 1.8em;
-            color: #2f2f4f;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .lop-card .platform {
-            color: #b8860b;
-        }
-        .lop-btn {
-            background: linear-gradient(45deg, #2f2f4f, #b8860b);
-            border: 2px solid #2f2f4f;
-            box-shadow: 0 0 12px rgba(47, 47, 79, 0.7), inset 0 0 6px rgba(47, 47, 79, 0.5);
-        }
-
-        /* Forza Horizon 5 Card */
-        .fh5-card {
-            border: 2px solid #ff4500;
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5), 0 0 40px rgba(255, 69, 0, 0.3);
-        }
-        .fh5-card:hover {
-            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.7), 0 0 50px rgba(255, 69, 0, 0.5);
-        }
-        .fh5-card h2 {
-            font-size: 1.8em;
-            color: #ff4500;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .fh5-card .platform {
-            color: #ffd700;
-        }
-        .fh5-btn {
-            background: linear-gradient(45deg, #ff4500, #ffd700);
-            border: 2px solid #ff4500;
-            box-shadow: 0 0 12px rgba(255, 69, 0, 0.7), inset 0 0 6px rgba(255, 69, 0, 0.5);
-        }
-
-        .game-card img {
-            width: 100%;
-            max-height: 180px;
-            object-fit: contain;
-            padding: 15px;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
-        }
-
-        .game-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .game-info {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .gow-card h2 {
-            font-size: 1.8em;
-            color: #00aaff;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .gta-card h2 {
-            font-size: 1.8em;
-            color: #ff5500;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .fortnite-card h2 {
-            font-size: 1.8em;
-            color: #ff00ff;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .rdr2-card h2 {
-            font-size: 1.8em;
-            color: #8b0000;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .witcher3-card h2 {
-            font-size: 1.8em;
-            color: #4b0082;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .cyberpunk-card h2 {
-            font-size: 1.8em;
-            color: #ffd700;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .eldenring-card h2 {
-            font-size: 1.8em;
-            color: #228b22;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .uncharted4-card h2 {
-            font-size: 1.8em;
-            color: #4682b4;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .rating {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .stars {
-            font-size: 1.2em;
-            display: flex;
-            gap: 2px;
-        }
-
-        .stars span {
-            color: #ffd700;
-        }
-
-        .stars .empty {
-            color: #444444;
-        }
-
-        .rating-score {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .platform {
-            font-size: 1em;
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
-
-        .gow-card .platform {
-            color: #00ff99;
-        }
-
-        .gta-card .platform {
-            color: #ffaa00;
-        }
-
-        .fortnite-card .platform {
-            color: #9900ff;
-        }
-
-        .rdr2-card .platform {
-            color: #ff4040;
-        }
-
-        .witcher3-card .platform {
-            color: #9370db;
-        }
-
-        .cyberpunk-card .platform {
-            color: #ffa500;
-        }
-
-        .eldenring-card .platform {
-            color: #32cd32;
-        }
-
-        .uncharted4-card .platform {
-            color: #87ceeb;
-        }
-
-        .game-card p {
-            color: #c0c0c0;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        .download-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 800;
-            font-size: 1.2em;
-            color: #ffffff;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-size: 200% 100%;
-            background-position: 100% 0;
-        }
-
-        .download-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-            transition: transform 0.3s ease;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            background-position: 0 0;
-        }
-
-        .download-btn:hover svg {
-            transform: translateY(3px);
-        }
-
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.15);
-            transform: skewX(-20deg);
-            transition: left 0.4s ease;
-            z-index: 0;
-        }
-
-        .download-btn:hover::before {
-            left: 100%;
-        }
-
-        .download-btn span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .gow-btn {
-            background: linear-gradient(45deg, #00aaff, #00ccff);
-            border: 2px solid #00aaff;
-            box-shadow: 0 0 12px rgba(0, 170, 255, 0.7), inset 0 0 6px rgba(0, 204, 255, 0.5);
-        }
-
-        .gta-btn {
-            background: linear-gradient(45deg, #ff5500, #ffaa00);
-            border: 2px solid #ff5500;
-            box-shadow: 0 0 12px rgba(255, 85, 0, 0.7), inset 0 0 6px rgba(255, 170, 0, 0.5);
-        }
-
-        .fortnite-btn {
-            background: linear-gradient(45deg, #ff00ff, #9900ff);
-            border: 2px solid #ff00ff;
-            box-shadow: 0 0 12px rgba(255, 0, 255, 0.7), inset 0 0 6px rgba(153, 0, 255, 0.5);
-        }
-
-        .rdr2-btn {
-            background: linear-gradient(45deg, #8b0000, #b22222);
-            border: 2px solid #8b0000;
-            box-shadow: 0 0 12px rgba(139, 0, 0, 0.7), inset 0 0 6px rgba(139, 0, 0, 0.5);
-        }
-
-        .witcher3-btn {
-            background: linear-gradient(45deg, #4b0082, #7b68ee);
-            border: 2px solid #4b0082;
-            box-shadow: 0 0 12px rgba(75, 0, 130, 0.7), inset 0 0 6px rgba(75, 0, 130, 0.5);
-        }
-
-        .cyberpunk-btn {
-            background: linear-gradient(45deg, #ffd700, #ffa500);
-            border: 2px solid #ffd700;
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.7), inset 0 0 6px rgba(255, 215, 0, 0.5);
-        }
-
-        .eldenring-btn {
-            background: linear-gradient(45deg, #228b22, #32cd32);
-            border: 2px solid #228b22;
-            box-shadow: 0 0 12px rgba(34, 139, 34, 0.7), inset 0 0 6px rgba(34, 139, 34, 0.5);
-        }
-
-        .uncharted4-btn {
-            background: linear-gradient(45deg, #4682b4, #87ceeb);
-            border: 2px solid #4682b4;
-            box-shadow: 0 0 12px rgba(70, 130, 180, 0.7), inset 0 0 6px rgba(70, 130, 180, 0.5);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            background: rgba(32, 32, 32, 0.9);
-            font-size: 1em;
-            color: #888888;
-            border-top: 1px solid #ffffff;
-            transition: color 0.3s ease;
-            width: 100%;
-            max-width: 1300px;
-            box-sizing: border-box;
-            margin-top: 60px; /* Added to ensure spacing between game-container and footer */
-        }
-
-        footer:hover {
-            color: #ffffff;
-        }
-
-        footer a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 8px;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #f0f0f0;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .card-appear {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease-out;
-        }
-        
-        .card-appear.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .download-counter {
-            font-size: 0.9em;
-            color: #b0b0b0;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .search-container {
-                padding: 0 20px;
-            }
-
-            #search-bar {
-                padding: 10px 15px;
-                font-size: 0.9em;
-            }
-
-            #search-btn {
-                width: 35px;
-                height: 35px;
-            }
-
-            #search-btn svg {
-                width: 18px;
-                height: 18px;
-            }
-        }
+.header-logo {
+    max-width: 130px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+p.subtitle {
+    font-size: 1em;
+    color: #ffcc00;
+    margin-top: 10px;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+}
+
+p.subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #ffcc00;
+    box-shadow: 0 0 3px rgba(255, 204, 0, 0.5);
+}
+
+/* Search Bar Styles */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(37, 37, 37, 0.95);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    font-size: 1em;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+#search-bar:focus {
+    border: 2px solid #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
+    background: rgba(50, 50, 50, 0.95);
+}
+
+#search-bar::placeholder {
+    color: #888888;
+}
+
+#search-btn {
+    position: absolute;
+    right: 10px;
+    background: linear-gradient(45deg, #00aaff, #ff00ff);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+#search-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+}
+
+#search-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+}
+
+#search-btn:active {
+    transform: scale(0.95);
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: none;
+    width: 100%;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-in;
+    box-sizing: border-box;
+}
+
+.game-card {
+    background: rgba(37, 37, 37, 0.95);
+    width: 360px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+}
+
+.gow-card {
+    border: 2px solid #00aaff;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 40px rgba(0, 204, 255, 0.3);
+}
+
+.gow-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 170, 255, 0.7), 0 0 50px rgba(0, 204, 255, 0.5);
+}
+
+.gta-card {
+    border: 2px solid #ff5500;
+    box-shadow: 0 0 20px rgba(255, 85, 0, 0.5), 0 0 40px rgba(255, 170, 0, 0.3);
+}
+
+.gta-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 85, 0, 0.7), 0 0 50px rgba(255, 170, 0, 0.5);
+}
+
+.fortnite-card {
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(153, 0, 255, 0.3);
+}
+
+.fortnite-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.7), 0 0 50px rgba(153, 0, 255, 0.5);
+}
+
+.rdr2-card {
+    border: 2px solid #8b0000;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.7), 0 0 40px rgba(139, 0, 0, 0.5);
+}
+
+.rdr2-card:hover {
+    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.9), 0 0 50px rgba(139, 0, 0, 0.7);
+}
+
+.witcher3-card {
+    border: 2px solid #4b0082;
+    box-shadow: 0 0 20px rgba(75, 0, 130, 0.5), 0 0 40px rgba(75, 0, 130, 0.3);
+}
+
+.witcher3-card:hover {
+    box-shadow: 0 10px 30px rgba(75, 0, 130, 0.7), 0 0 50px rgba(75, 0, 130, 0.5);
+}
+
+.cyberpunk-card {
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.cyberpunk-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7), 0 0 50px rgba(255, 215, 0, 0.5);
+}
+
+.eldenring-card {
+    border: 2px solid #228b22;
+    box-shadow: 0 0 20px rgba(34, 139, 34, 0.5), 0 0 40px rgba(34, 139, 34, 0.3);
+}
+
+.eldenring-card:hover {
+    box-shadow: 0 10px 30px rgba(34, 139, 34, 0.7), 0 0 50px rgba(34, 139, 34, 0.5);
+}
+
+.uncharted4-card {
+    border: 2px solid #4682b4;
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.5), 0 0 40px rgba(70, 130, 180, 0.3);
+}
+
+.uncharted4-card:hover {
+    box-shadow: 0 10px 30px rgba(70, 130, 180, 0.7), 0 0 50px rgba(70, 130, 180, 0.5);
+}
+
+/* Ghost of Tsushima Card */
+.got-card {
+    border: 2px solid #8b0000;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.5), 0 0 40px rgba(139, 0, 0, 0.3);
+}
+.got-card:hover {
+    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.7), 0 0 50px rgba(139, 0, 0, 0.5);
+}
+.got-card h2 {
+    font-size: 1.8em;
+    color: #8b0000;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.got-card .platform {
+    color: #ff4040;
+}
+.got-btn {
+    background: linear-gradient(45deg, #8b0000, #ff4040);
+    border: 2px solid #8b0000;
+    box-shadow: 0 0 12px rgba(139, 0, 0, 0.7), inset 0 0 6px rgba(139, 0, 0, 0.5);
+}
+
+/* The Last of Us Card */
+.tlou-card {
+    border: 2px solid #2e3b2e;
+    box-shadow: 0 0 20px rgba(46, 59, 46, 0.5), 0 0 40px rgba(46, 59, 46, 0.3);
+}
+.tlou-card:hover {
+    box-shadow: 0 10px 30px rgba(46, 59, 46, 0.7), 0 0 50px rgba(46, 59, 46, 0.5);
+}
+.tlou-card h2 {
+    font-size: 1.8em;
+    color: #2e3b2e;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.tlou-card .platform {
+    color: #6b8e23;
+}
+.tlou-btn {
+    background: linear-gradient(45deg, #2e3b2e, #6b8e23);
+    border: 2px solid #2e3b2e;
+    box-shadow: 0 0 12px rgba(46, 59, 46, 0.7), inset 0 0 6px rgba(46, 59, 46, 0.5);
+}
+
+/* Horizon Zero Dawn Card */
+.hzd-card {
+    border: 2px solid #b8860b;
+    box-shadow: 0 0 20px rgba(184, 134, 11, 0.5), 0 0 40px rgba(184, 134, 11, 0.3);
+}
+.hzd-card:hover {
+    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.7), 0 0 50px rgba(184, 134, 11, 0.5);
+}
+.hzd-card h2 {
+    font-size: 1.8em;
+    color: #b8860b;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.hzd-card .platform {
+    color: #cd853f;
+}
+.hzd-btn {
+    background: linear-gradient(45deg, #b8860b, #cd853f);
+    border: 2px solid #b8860b;
+    box-shadow: 0 0 12px rgba(184, 134, 11, 0.7), inset 0 0 6px rgba(184, 134, 11 namespaced element <xaiArtifact> from HTML namespace is not known
+, 0.5);
+}
+
+/* Assassin's Creed Shadows Card */
+.acs-card {
+    border: 2px solid #1a1a1a;
+    box-shadow: 0 0 20px rgba(26, 26, 26, 0.5), 0 0 40px rgba(26, 26, 26, 0.3);
+}
+.acs-card:hover {
+    box-shadow: 0 10px 30px rgba(26, 26, 26, 0.7), 0 0 50px rgba(26, 26, 26, 0.5);
+}
+.acs-card h2 {
+    font-size: 1.8em;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.acs-card .platform {
+    color: #b22222;
+}
+.acs-btn {
+    background: linear-gradient(45deg, #1a1a1a, #b22222);
+    border: 2px solid #1a1a1a;
+    box-shadow: 0 0 12px rgba(26, 26, 26, 0.7), inset 0 0 6px rgba(26, 26, 26, 0.5);
+}
+
+/* Silent Hill 2 Card */
+.sh2-card {
+    border: 2px solid #696969;
+    box-shadow: 0 0 20px rgba(105, 105, 105, 0.5), 0 0 40px rgba(105, 105, 105, 0.3);
+}
+.sh2-card:hover {
+    box-shadow: 0 10px 30px rgba(105, 105, 105, 0.7), 0 0 50px rgba(105, 105, 105, 0.5);
+}
+.sh2-card h2 {
+    font-size: 1.8em;
+    color: #696969;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.sh2-card .platform {
+    color: #a9a9a9;
+}
+.sh2-btn {
+    background: linear-gradient(45deg, #696969, #a9a9a9);
+    border: 2px solid #696969;
+    box-shadow: 0 0 12px rgba(105, 105, 105, 0.7), inset 0 0 6px rgba(105, 105, 105, 0.5);
+}
+
+/* 7 Days to Die Card */
+.sevendtd-card {
+    border: 2px solid #4a2c2a;
+    box-shadow: 0 0 20px rgba(74, 44, 42, 0.5), 0 0 40px rgba(74, 44, 42, 0.3);
+}
+.sevendtd-card:hover {
+    box-shadow: 0 10px 30px rgba(74, 44, 42, 0.7), 0 0 50px rgba(74, 44, 42, 0.5);
+}
+.sevendtd-card h2 {
+    font-size: 1.8em;
+    color: #4a2c2a;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.sevendtd-card .platform {
+    color: #8b0000;
+}
+.sevendtd-btn {
+    background: linear-gradient(45deg, #4a2c2a, #8b0000);
+    border: 2px solid #4a2c2a;
+    box-shadow: 0 0 12px rgba(74, 44, 42, 0.7), inset 0 0 6px rgba(74, 44, 42, 0.5);
+}
+
+/* Black Myth: Wukong Card */
+.bmw-card {
+    border: 2px solid #8b4513;
+    box-shadow: 0 0 20px rgba(139, 69, 19, 0.5), 0 0 40px rgba(139, 69, 19, 0.3);
+}
+.bmw-card:hover {
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.7), 0 0 50px rgba(139, 69, 19, 0.5);
+}
+.bmw-card h2 {
+    font-size: 1.8em;
+    color: #8b4513;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.bmw-card .platform {
+    color: #d4a017;
+}
+.bmw-btn {
+    background: linear-gradient(45deg, #8b4513, #d4a017);
+    border: 2px solid #8b4513;
+    box-shadow: 0 0 12px rgba(139, 69, 19, 0.7), inset 0 0 6px rgba(139, 69, 19, 0.5);
+}
+
+/* Euro Truck Simulator 2 Card */
+.ets2-card {
+    border: 2px solid #4682b4;
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.5), 0 0 40px rgba(70, 130, 180, 0.3);
+}
+.ets2-card:hover {
+    box-shadow: 0 10px 30px rgba(70, 130, 180, 0.7), 0 0 50px rgba(70, 130, 180, 0.5);
+}
+.ets2-card h2 {
+    font-size: 1.8em;
+    color: #4682b4;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.ets2-card .platform {
+    color: #87cefa;
+}
+.ets2-btn {
+    background: linear-gradient(45deg, #4682b4, #87cefa);
+    border: 2px solid #4682b4;
+    box-shadow: 0 0 12px rgba(70, 130, 180, 0.7), inset 0 0 6px rgba(70, 130, 180, 0.5);
+}
+
+/* Sekiro: Shadows Die Twice Card */
+.sekiro-card {
+    border: 2px solid #3c2f2f;
+    box-shadow: 0 0 20px rgba(60, 47, 47, 0.5), 0 0 40px rgba(60, 47, 47, 0.3);
+}
+.sekiro-card:hover {
+    box-shadow: 0 10px 30px rgba(60, 47, 47, 0.7), 0 0 50px rgba(60, 47, 47, 0.5);
+}
+.sekiro-card h2 {
+    font-size: 1.8em;
+    color: #3c2f2f;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.sekiro-card .platform {
+    color: #a0522d;
+}
+.sekiro-btn {
+    background: linear-gradient(45deg, #3c2f2f, #a0522d);
+    border: 2px solid #3c2f2f;
+    box-shadow: 0 0 12px rgba(60, 47, 47, 0.7), inset 0 0 6px rgba(60, 47, 47, 0.5);
+}
+
+/* No Man's Sky Card */
+.nms-card {
+    border: 2px solid #ff4040;
+    box-shadow: 0 0 20px rgba(255, 64, 64, 0.5), 0 0 40px rgba(255, 64, 64, 0.3);
+}
+.nms-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 64, 64, 0.7), 0 0 50px rgba(255, 64, 64, 0.5);
+}
+.nms-card h2 {
+    font-size: 1.8em;
+    color: #ff4040;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.nms-card .platform {
+    color: #00ced1;
+}
+.nms-btn {
+    background: linear-gradient(45deg, #ff4040, #00ced1);
+    border: 2px solid #ff4040;
+    box-shadow: 0 0 12px rgba(255, 64, 64, 0.7), inset 0 0 6px rgba(255, 64, 64, 0.5);
+}
+
+/* Starfield Card */
+.starfield-card {
+    border: 2px solid #1b263b;
+    box-shadow: 0 0 20px rgba(27, 38, 59, 0.5), 0 0 40px rgba(27, 38, 59, 0.3);
+}
+.starfield-card:hover {
+    box-shadow: 0 10px 30px rgba(27, 38, 59, 0.7), 0 0 50px rgba(27, 38, 59, 0.5);
+}
+.starfield-card h2 {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.starfield-card .platform {
+    color: #778899;
+}
+.starfield-btn {
+    background: linear-gradient(45deg, #1b263b, #778899);
+    border: 2px solid #1b263b;
+    box-shadow: 0 0 12px rgba(27, 38, 59, 0.7), inset 0 0 6px rgba(27, 38, 59, 0.5);
+}
+
+/* Resident Evil 4 Card */
+.re4-card {
+    border: 2px solid #2f4f4f;
+    box-shadow: 0 0 20px rgba(47, 79, 79, 0.5), 0 0 40px rgba(47, 79, 79, 0.3);
+}
+.re4-card:hover {
+    box-shadow: 0 10px 30px rgba(47, 79, 79, 0.7), 0 0 50px rgba(47, 79, 79, 0.5);
+}
+.re4-card h2 {
+    font-size: 1.8em;
+    color: #2f4f4f;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.re4-card .platform {
+    color: #8b0000;
+}
+.re4-btn {
+    background: linear-gradient(45deg, #2f4f4f, #8b0000);
+    border: 2px solid #2f4f4f;
+    box-shadow: 0 0 12px rgba(47, 79, 79, 0.7), inset 0 0 6px rgba(47, 79, 79, 0.5);
+}
+
+/* Lies of P Card */
+.lop-card {
+    border: 2px solid #2f2f4f;
+    box-shadow: 0 0 20px rgba(47, 47, 79, 0.5), 0 0 40px rgba(47, 47, 79, 0.3);
+}
+.lop-card:hover {
+    box-shadow: 0 10px 30px rgba(47, 47, 79, 0.7), 0 0 50px rgba(47, 47, 79, 0.5);
+}
+.lop-card h2 {
+    font-size: 1.8em;
+    color: #2f2f4f;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.lop-card .platform {
+    color: #b8860b;
+}
+.lop-btn {
+    background: linear-gradient(45deg, #2f2f4f, #b8860b);
+    border: 2px solid #2f2f4f;
+    box-shadow: 0 0 12px rgba(47, 47, 79, 0.7), inset 0 0 6px rgba(47, 47, 79, 0.5);
+}
+
+/* Forza Horizon 5 Card */
+.fh5-card {
+    border: 2px solid #ff4500;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5), 0 0 40px rgba(255, 69, 0, 0.3);
+}
+.fh5-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.7), 0 0 50px rgba(255, 69, 0, 0.5);
+}
+.fh5-card h2 {
+    font-size: 1.8em;
+    color: #ff4500;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.fh5-card .platform {
+    color: #ffd700;
+}
+.fh5-btn {
+    background: linear-gradient(45deg, #ff4500, #ffd700);
+    border: 2px solid #ff4500;
+    box-shadow: 0 0 12px rgba(255, 69, 0, 0.7), inset 0 0 6px rgba(255, 69, 0, 0.5);
+}
+
+.game-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover img {
+    transform: scale(1.05);
+}
+
+.game-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gow-card h2 {
+    font-size: 1.8em;
+    color: #00aaff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.gta-card h2 {
+    font-size: 1.8em;
+    color: #ff5500;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.fortnite-card h2 {
+    font-size: 1.8em;
+    color: #ff00ff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.rdr2-card h2 {
+    font-size: 1.8em;
+    color: #8b0000;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.witcher3-card h2 {
+    font-size: 1.8em;
+    color: #4b0082;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.cyberpunk-card h2 {
+    font-size: 1.8em;
+    color: #ffd700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.eldenring-card h2 {
+    font-size: 1.8em;
+    color: #228b22;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.uncharted4-card h2 {
+    font-size: 1.8em;
+    color: #4682b4;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.rating {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    font-size: 1.2em;
+    display: flex;
+    gap: 2px;
+}
+
+.stars span {
+    color: #ffd700;
+}
+
+.stars .empty {
+    color: #444444;
+}
+
+.rating-score {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.platform {
+    font-size: 1em;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.gow-card .platform {
+    color: #00ff99;
+}
+
+.gta-card .platform {
+    color: #ffaa00;
+}
+
+.fortnite-card .platform {
+    color: #9900ff;
+}
+
+.rdr2-card .platform {
+    color: #ff4040;
+}
+
+.witcher3-card .platform {
+    color: #9370db;
+}
+
+.cyberpunk-card .platform {
+    color: #ffa500;
+}
+
+.eldenring-card .platform {
+    color: #32cd32;
+}
+
+.uncharted4-card .platform {
+    color: #87ceeb;
+}
+
+.game-card p {
+    color: #c0c0c0;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+}
+
+.download-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background-position: 0 0;
+}
+
+.download-btn:hover svg {
+    transform: translateY(3px);
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: skewX(-20deg);
+    transition: left 0.4s ease;
+    z-index: 0;
+}
+
+.download-btn:hover::before {
+    left: 100%;
+}
+
+.download-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.gow-btn {
+    background: linear-gradient(45deg, #00aaff, #00ccff);
+    border: 2px solid #00aaff;
+    box-shadow: 0 0 12px rgba(0, 170, 255, 0.7), inset 0 0 6px rgba(0, 204, 255, 0.5);
+}
+
+.gta-btn {
+    background: linear-gradient(45deg, #ff5500, #ffaa00);
+    border: 2px solid #ff5500;
+    box-shadow: 0 0 12px rgba(255, 85, 0, 0.7), inset 0 0 6px rgba(255, 170, 0, 0.5);
+}
+
+.fortnite-btn {
+    background: linear-gradient(45deg, #ff00ff, #9900ff);
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.7), inset 0 0 6px rgba(153, 0, 255, 0.5);
+}
+
+.rdr2-btn {
+    background: linear-gradient(45deg, #8b0000, #b22222);
+    border: 2px solid #8b0000;
+    box-shadow: 0 0 12px rgba(139, 0, 0, 0.7), inset 0 0 6px rgba(139, 0, 0, 0.5);
+}
+
+.witcher3-btn {
+    background: linear-gradient(45deg, #4b0082, #7b68ee);
+    border: 2px solid #4b0082;
+    box-shadow: 0 0 12px rgba(75, 0, 130, 0.7), inset 0 0 6px rgba(75, 0, 130, 0.5);
+}
+
+.cyberpunk-btn {
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.7), inset 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+.eldenring-btn {
+    background: linear-gradient(45deg, #228b22, #32cd32);
+    border: 2px solid #228b22;
+    box-shadow: 0 0 12px rgba(34, 139, 34, 0.7), inset 0 0 6px rgba(34, 139, 34, 0.5);
+}
+
+.uncharted4-btn {
+    background: linear-gradient(45deg, #4682b4, #87ceeb);
+    border: 2px solid #4682b4;
+    box-shadow: 0 0 12px rgba(70, 130, 180, 0.7), inset 0 0 6px rgba(70, 130, 180, 0.5);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background: rgba(32, 32, 32, 0.9);
+    font-size: 1em;
+    color: #888888;
+    border-top: 1px solid #ffffff;
+    transition: color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 60px;
+}
+
+footer:hover {
+    color: #ffffff;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #f0f0f0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-appear {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+.card-appear.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.download-counter {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .search-container {
+        padding: 0 20px;
+    }
+
+    #search-bar {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    #search-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    #search-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
     </style>
 </head>
 <body>
